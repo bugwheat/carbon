@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kgy-zX-Z35">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kgy-zX-Z35">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,11 +14,11 @@
             <objects>
                 <viewController id="uKG-Nk-XcR" customClass="PlayerViewController" customModule="diamond" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QSU-E7-Sfe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xkg-Hw-FMB">
-                                <rect key="frame" x="0.0" y="733" width="414" height="80"/>
+                                <rect key="frame" x="0.0" y="758" width="414" height="80"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6z-LZ-KUA">
                                         <rect key="frame" x="0.0" y="0.0" width="87" height="80"/>
@@ -71,28 +72,29 @@
                                     <constraint firstAttribute="height" constant="80" id="oa8-k2-pLY"/>
                                 </constraints>
                             </stackView>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="YHw-IW-YcO">
-                                <rect key="frame" x="148" y="480" width="118" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="YHw-IW-YcO">
+                                <rect key="frame" x="32" y="718" width="350" height="31"/>
                             </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Pba-Hy-hwz"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" systemColor="systemGreenColor"/>
                         <constraints>
+                            <constraint firstItem="YHw-IW-YcO" firstAttribute="centerX" secondItem="Pba-Hy-hwz" secondAttribute="centerX" id="81r-nX-yrz"/>
                             <constraint firstItem="Pba-Hy-hwz" firstAttribute="bottom" secondItem="Xkg-Hw-FMB" secondAttribute="bottom" id="83o-n2-tdf"/>
                             <constraint firstItem="Pba-Hy-hwz" firstAttribute="trailing" secondItem="Xkg-Hw-FMB" secondAttribute="trailing" id="GFK-Vv-asa"/>
+                            <constraint firstItem="YHw-IW-YcO" firstAttribute="width" secondItem="QSU-E7-Sfe" secondAttribute="width" multiplier="0.835749" id="hH7-Rh-uyj"/>
+                            <constraint firstItem="Xkg-Hw-FMB" firstAttribute="top" secondItem="YHw-IW-YcO" secondAttribute="bottom" constant="10" id="hn5-A4-5rO"/>
                             <constraint firstItem="Xkg-Hw-FMB" firstAttribute="leading" secondItem="Pba-Hy-hwz" secondAttribute="leading" id="oUr-9s-Q3p"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="play.fill" catalog="system" id="lNg-Bu-dOM"/>
                     <connections>
                         <outlet property="playButton" destination="cFT-al-trv" id="8Cz-sc-Hny"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uB0-5S-dr6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="705.79710144927537" y="-346.20535714285711"/>
+            <point key="canvasLocation" x="1629" y="-268"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="v1M-HP-90A">
@@ -110,7 +112,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="U8H-gQ-lXS" kind="relationship" relationship="viewControllers" id="lnQ-YH-v8i"/>
-                        <segue destination="uKG-Nk-XcR" kind="relationship" relationship="viewControllers" id="IDC-90-Y0s"/>
                         <segue destination="fcd-CE-s4o" kind="relationship" relationship="viewControllers" id="i4T-62-wtN"/>
                     </connections>
                 </tabBarController>
@@ -132,19 +133,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZZM-Oh-TWU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="706" y="383"/>
+            <point key="canvasLocation" x="738" y="371"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="s8z-df-OTw">
             <objects>
-                <tableViewController id="f7S-hA-Fks" sceneMemberID="viewController">
+                <tableViewController id="f7S-hA-Fks" customClass="RootViewController" customModule="diamond" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="euG-95-sUu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="PFn-k2-Yfy">
-                                <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PFn-k2-Yfy" id="dTi-CP-NrM">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -158,7 +159,14 @@
                             <outlet property="delegate" destination="f7S-hA-Fks" id="320-NU-8aN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="7eB-be-yKJ"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="7eB-be-yKJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="0rM-7N-dzJ">
+                            <connections>
+                                <action selector="togglePlayer:" destination="f7S-hA-Fks" id="e9J-JS-zmh"/>
+                                <segue destination="uKG-Nk-XcR" kind="presentation" id="Jy8-yl-XMJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cta-uY-icE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,7 +178,7 @@
                 <navigationController id="U8H-gQ-lXS" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="magnifyingglass" catalog="system" id="Ypv-iw-Z3V"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="vfj-Qp-zfF">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -184,12 +192,11 @@
     </scenes>
     <color key="tintColor" systemColor="systemGreenColor"/>
     <resources>
-        <image name="gobackward.30" catalog="system" width="121" height="128"/>
-        <image name="goforward.30" catalog="system" width="121" height="128"/>
+        <image name="gobackward.30" catalog="system" width="119" height="128"/>
+        <image name="goforward.30" catalog="system" width="119" height="128"/>
         <image name="info" catalog="system" width="93" height="128"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
-        <image name="play.circle" catalog="system" width="128" height="121"/>
-        <image name="play.fill" catalog="system" width="116" height="128"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="play.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

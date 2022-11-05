@@ -16,6 +16,8 @@
 		65E74B9A2917062300407603 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E74B982917062300407603 /* Main.storyboard */; };
 		65E74B9C2917062800407603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E74B9B2917062800407603 /* Assets.xcassets */; };
 		65E74B9F2917062800407603 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E74B9D2917062800407603 /* LaunchScreen.storyboard */; };
+		9A9E2D222917265C00FC5EEA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9E2D212917265C00FC5EEA /* RootViewController.swift */; };
+		F790ECC819EEAF2C40BC1733 /* Pods_diamond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92EDAC03A88F5340A7508EB /* Pods_diamond.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		266FD0C73188C1E2DE2FD88B /* Pods-diamond.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diamond.debug.xcconfig"; path = "Target Support Files/Pods-diamond/Pods-diamond.debug.xcconfig"; sourceTree = "<group>"; };
 		650BD8DD29170CC900E1775B /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		650BD8DF29170CCE00E1775B /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		650BD8E129170CE800E1775B /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +52,9 @@
 		65E74BA02917062800407603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65E74BA52917062900407603 /* diamondTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = diamondTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E74BAF2917062900407603 /* diamondUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = diamondUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A9E2D212917265C00FC5EEA /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		A92EDAC03A88F5340A7508EB /* Pods_diamond.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_diamond.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C93C4ABDE2C59EEA63965507 /* Pods-diamond.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diamond.release.xcconfig"; path = "Target Support Files/Pods-diamond/Pods-diamond.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F790ECC819EEAF2C40BC1733 /* Pods_diamond.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,11 +83,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5CE22FC1877FEED0B833BAAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A92EDAC03A88F5340A7508EB /* Pods_diamond.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		65E74B862917062300407603 = {
 			isa = PBXGroup;
 			children = (
 				65E74B912917062300407603 /* diamond */,
 				65E74B902917062300407603 /* Products */,
+				AAA35B0A6B42B61C5BBD427C /* Pods */,
+				5CE22FC1877FEED0B833BAAA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,8 +124,19 @@
 				650BD8DD29170CC900E1775B /* DiscoverViewController.swift */,
 				650BD8DF29170CCE00E1775B /* PlayerViewController.swift */,
 				650BD8E129170CE800E1775B /* StatsViewController.swift */,
+				9A9E2D212917265C00FC5EEA /* RootViewController.swift */,
 			);
 			path = diamond;
+			sourceTree = "<group>";
+		};
+		AAA35B0A6B42B61C5BBD427C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				266FD0C73188C1E2DE2FD88B /* Pods-diamond.debug.xcconfig */,
+				C93C4ABDE2C59EEA63965507 /* Pods-diamond.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,6 +146,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65E74BB92917062900407603 /* Build configuration list for PBXNativeTarget "diamond" */;
 			buildPhases = (
+				B1209CB4B7CEB474E7DE9F8E /* [CP] Check Pods Manifest.lock */,
 				65E74B8B2917062300407603 /* Sources */,
 				65E74B8C2917062300407603 /* Frameworks */,
 				65E74B8D2917062300407603 /* Resources */,
@@ -237,6 +266,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B1209CB4B7CEB474E7DE9F8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-diamond-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		65E74B8B2917062300407603 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -245,6 +299,7 @@
 				650BD8E029170CCE00E1775B /* PlayerViewController.swift in Sources */,
 				65E74B972917062300407603 /* ViewController.swift in Sources */,
 				650BD8DE29170CC900E1775B /* DiscoverViewController.swift in Sources */,
+				9A9E2D222917265C00FC5EEA /* RootViewController.swift in Sources */,
 				65E74B932917062300407603 /* AppDelegate.swift in Sources */,
 				650BD8E229170CE800E1775B /* StatsViewController.swift in Sources */,
 				65E74B952917062300407603 /* SceneDelegate.swift in Sources */,
@@ -418,12 +473,13 @@
 		};
 		65E74BBA2917062900407603 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 266FD0C73188C1E2DE2FD88B /* Pods-diamond.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GVD6DJ7LZU;
+				DEVELOPMENT_TEAM = 72ZYXE794A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = diamond/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -436,7 +492,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bugwheet.diamond;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bugwheet.diamond2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -446,12 +502,13 @@
 		};
 		65E74BBB2917062900407603 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C93C4ABDE2C59EEA63965507 /* Pods-diamond.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GVD6DJ7LZU;
+				DEVELOPMENT_TEAM = 72ZYXE794A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = diamond/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -464,7 +521,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.bugwheet.diamond;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bugwheet.diamond2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
