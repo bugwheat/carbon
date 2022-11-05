@@ -14,6 +14,12 @@ async fn audio(_: web::Path<String>) -> std::io::Result<actix_files::NamedFile> 
     actix_files::NamedFile::open("data/rickroll.mp3")
 }
 
+#[get("/podcast/{id}/compressed/{chunk}")]
+async fn audio_compressed(path: web::Path<(String, u32)>) -> std::io::Result<actix_files::NamedFile> {
+    let (_, chunk) = *path;
+    actix_files::NamedFile::open(format!("data/rickroll-{chunk:03}.ecdc"))
+}
+
 #[get("/podcasts")]
 async fn podcasts() -> std::io::Result<String> {
     Ok(serde_json::to_string(
@@ -33,6 +39,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .wrap(middleware::Logger::default())
             .service(audio)
+            .service(audio_compressed)
             .service(podcast)
             .service(podcasts)
     })

@@ -1,32 +1,48 @@
-use std::collections::BTreeMap;
 use serde::{Deserialize, Serialize};
+use std::collections::BTreeMap;
 
 #[derive(Serialize, Deserialize, Clone)]
 pub struct Podcast {
     id: String,
     author: String,
     name: String,
+    n_chuncks: u32,
+    duration: u32,
 }
 
-pub fn get_podcasts() -> BTreeMap<&'static str, Podcast> {
-    BTreeMap::from([
-        ("0", Podcast{ id: "0".to_string(), name: "Never gonna give you up".to_string(), author: "Rick Astley".to_string()}),
-        ("1", Podcast{ id: "1".to_string(), name: "Never gonna let you down".to_string(), author: "Rick Astley".to_string()}),
-        ("2", Podcast{ id: "2".to_string(), name: "Never gonna run around and desert you".to_string(), author: "Rick Astley".to_string()}),
-        ("3", Podcast{ id: "3".to_string(), name: "Never gonna make you cry".to_string(), author: "Rick Astley".to_string()}),
-        ("4", Podcast{ id: "4".to_string(), name: "Never gonna say goodbye".to_string(), author: "Rick Astley".to_string()}),
-        ("5", Podcast{ id: "5".to_string(), name: "Never gonna tell a lie and hurt you".to_string(), author: "Rick Astley".to_string()}),
-        ("6", Podcast{ id: "6".to_string(), name: "Never gonna give you up".to_string(), author: "Rick Astley".to_string()}),
-        ("7", Podcast{ id: "7".to_string(), name: "Never gonna let you down".to_string(), author: "Rick Astley".to_string()}),
-        ("8", Podcast{ id: "8".to_string(), name: "Never gonna run around and desert you".to_string(), author: "Rick Astley".to_string()}),
-        ("9", Podcast{ id: "9".to_string(), name: "Never gonna make you cry".to_string(), author: "Rick Astley".to_string()}),
-        ("10", Podcast{ id: "10".to_string(), name: "Never gonna say goodbye".to_string(), author: "Rick Astley".to_string()}),
-        ("11", Podcast{ id: "11".to_string(), name: "Never gonna tell a lie and hurt you".to_string(), author: "Rick Astley".to_string()}),
-    ])
+pub fn get_podcasts() -> BTreeMap<String, Podcast> {
+    BTreeMap::from_iter(
+        [
+            "Never gonna give you up",
+            "Never gonna let you down",
+            "Never gonna run around and desert you",
+            "Never gonna make you cry",
+            "Never gonna say goodbye",
+            "Never gonna tell a lie and hurt you",
+            "Never gonna give you up",
+            "Never gonna let you down",
+            "Never gonna run around and desert you",
+            "Never gonna make you cry",
+            "Never gonna say goodbye",
+            "Never gonna tell a lie and hurt you",
+        ]
+        .iter()
+        .enumerate()
+        .map(|(i, s)| {
+            (
+                i.to_string(),
+                Podcast {
+                    id: i.to_string(),
+                    author: "Rick Astley".to_string(),
+                    name: s.to_string(),
+                    n_chuncks: 11,
+                    duration: 211,
+                },
+            )
+        }),
+    )
 }
 
 pub fn sample(id: &str) -> std::option::Option<Podcast> {
-    get_podcasts()
-        .get(id)
-        .map(|x| x.clone())
+    get_podcasts().get(id).map(|x| x.clone())
 }
