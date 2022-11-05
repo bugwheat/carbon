@@ -1,8 +1,27 @@
-use actix_web::{middleware, web, App, HttpRequest, HttpServer};
+use actix_web::{get, middleware, web, App, HttpServer};
 
-async fn index(req: HttpRequest) -> &'static str {
-    println!("REQ: {req:?}");
-    "Hello world!"
+mod model;
+
+#[get("/podcast/{id}")]
+async fn podcast(id: web::Path<String>) -> std::io::Result<String> {
+    let podcast = crate::model::sample(&id)
+        .ok_or(std::io::Error::new(std::io::ErrorKind::Other, "not found"))?;
+    Ok(serde_json::to_string(&podcast)?)
+}
+
+#[get("/podcast/{id}/data")]
+async fn audio(_: web::Path<String>) -> std::io::Result<actix_files::NamedFile> {
+    actix_files::NamedFile::open("data/rickroll.mp3")
+}
+
+#[get("/podcasts")]
+async fn podcasts() -> std::io::Result<String> {
+    Ok(serde_json::to_string(
+        &crate::model::get_podcasts()
+            .iter()
+            .map(|(_, x)| x.clone())
+            .collect::<Vec<crate::model::Podcast>>()
+    )?)
 }
 
 #[actix_web::main]
@@ -12,35 +31,12 @@ async fn main() -> std::io::Result<()> {
 
     HttpServer::new(|| {
         App::new()
-            // enable logger
             .wrap(middleware::Logger::default())
-            .service(web::resource("/index.html").to(|| async { "Hello world!" }))
-            .service(web::resource("/").to(index))
+            .service(audio)
+            .service(podcast)
+            .service(podcasts)
     })
     .bind(("127.0.0.1", 8080))?
     .run()
     .await
-}
-
-#[cfg(test)]
-mod tests {
-    use actix_web::{body::to_bytes, dev::Service, http, test, web, App, Error};
-
-    use super::*;
-
-    #[actix_web::test]
-    async fn test_index() -> Result<(), Error> {
-        let app = App::new().route("/", web::get().to(index));
-        let app = test::init_service(app).await;
-
-        let req = test::TestRequest::get().uri("/").to_request();
-        let resp = app.call(req).await?;
-
-        assert_eq!(resp.status(), http::StatusCode::OK);
-
-        let response_body = resp.into_body();
-        assert_eq!(to_bytes(response_body).await?, r##"Hello world!"##);
-
-        Ok(())
-    }
 }
