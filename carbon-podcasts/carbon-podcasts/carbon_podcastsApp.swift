@@ -12,6 +12,7 @@ struct carbon_podcastsApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(Network())
         }
     }
 }

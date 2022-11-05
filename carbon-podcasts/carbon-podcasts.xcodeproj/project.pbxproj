@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		299DF6F49A4B4A6C349E1630 /* Pods_carbon_podcasts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE074712EC064607D78E0D32 /* Pods_carbon_podcasts.framework */; };
 		9A77A6422916A3A8004E43B8 /* carbon_podcastsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A77A6412916A3A8004E43B8 /* carbon_podcastsApp.swift */; };
 		9A77A6442916A3A8004E43B8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A77A6432916A3A8004E43B8 /* ContentView.swift */; };
 		9A77A6462916A3A9004E43B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A77A6452916A3A9004E43B8 /* Assets.xcassets */; };
@@ -14,11 +15,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2AD1BC0F608B2B50BE9D434E /* Pods-carbon-podcasts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carbon-podcasts.debug.xcconfig"; path = "Target Support Files/Pods-carbon-podcasts/Pods-carbon-podcasts.debug.xcconfig"; sourceTree = "<group>"; };
 		9A77A63E2916A3A8004E43B8 /* carbon-podcasts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "carbon-podcasts.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A77A6412916A3A8004E43B8 /* carbon_podcastsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = carbon_podcastsApp.swift; sourceTree = "<group>"; };
 		9A77A6432916A3A8004E43B8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9A77A6452916A3A9004E43B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A77A6482916A3A9004E43B8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E1A1338F6B45F7B505E4AB05 /* Pods-carbon-podcasts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-carbon-podcasts.release.xcconfig"; path = "Target Support Files/Pods-carbon-podcasts/Pods-carbon-podcasts.release.xcconfig"; sourceTree = "<group>"; };
+		FE074712EC064607D78E0D32 /* Pods_carbon_podcasts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_carbon_podcasts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,17 +30,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				299DF6F49A4B4A6C349E1630 /* Pods_carbon_podcasts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B4F4568AE423F9282D353D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FE074712EC064607D78E0D32 /* Pods_carbon_podcasts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8394DF38875162492044BCC8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2AD1BC0F608B2B50BE9D434E /* Pods-carbon-podcasts.debug.xcconfig */,
+				E1A1338F6B45F7B505E4AB05 /* Pods-carbon-podcasts.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9A77A6352916A3A8004E43B8 = {
 			isa = PBXGroup;
 			children = (
 				9A77A6402916A3A8004E43B8 /* carbon-podcasts */,
 				9A77A63F2916A3A8004E43B8 /* Products */,
+				8394DF38875162492044BCC8 /* Pods */,
+				6B4F4568AE423F9282D353D6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,6 +98,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A77A64C2916A3A9004E43B8 /* Build configuration list for PBXNativeTarget "carbon-podcasts" */;
 			buildPhases = (
+				C4A9FBB41D9D70E4DC5375C0 /* [CP] Check Pods Manifest.lock */,
 				9A77A63A2916A3A8004E43B8 /* Sources */,
 				9A77A63B2916A3A8004E43B8 /* Frameworks */,
 				9A77A63C2916A3A8004E43B8 /* Resources */,
@@ -131,6 +156,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C4A9FBB41D9D70E4DC5375C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-carbon-podcasts-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9A77A63A2916A3A8004E43B8 /* Sources */ = {
@@ -261,6 +311,7 @@
 		};
 		9A77A64D2916A3A9004E43B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2AD1BC0F608B2B50BE9D434E /* Pods-carbon-podcasts.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -270,9 +321,11 @@
 				DEVELOPMENT_TEAM = 72ZYXE794A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -291,6 +344,7 @@
 		};
 		9A77A64E2916A3A9004E43B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1A1338F6B45F7B505E4AB05 /* Pods-carbon-podcasts.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -300,9 +354,11 @@
 				DEVELOPMENT_TEAM = 72ZYXE794A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
