@@ -25,7 +25,7 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
     
     var timer: Timer? = nil
 
-    let decompressor = Decompressor(modelFileInfo: FileInfo("model24", "onnx"))!
+    let decompressor = Decompressor(modelFileInfo: FileInfo("model24_12", "onnx"))!
     
     var player: AVAudioPlayer? {
         didSet {

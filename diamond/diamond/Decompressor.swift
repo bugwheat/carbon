@@ -144,7 +144,7 @@ class Decompressor: NSObject {
         let inputName = "frame"
         let outputName = "1427"
 
-        let inputShape: [NSNumber] = [1 as NSNumber, 8 as NSNumber, 1500 as NSNumber]
+        let inputShape: [NSNumber] = [1 as NSNumber, 16 as NSNumber, 1500 as NSNumber]
 
         let outs = datas.map { data in
             let inputTensor = try! ORTValue(tensorData: NSMutableData(data: data),
