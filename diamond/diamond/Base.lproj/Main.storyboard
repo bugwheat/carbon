@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="player" id="uKG-Nk-XcR" customClass="PlayerViewController" customModule="diamond" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QSU-E7-Sfe">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xkg-Hw-FMB">
-                                <rect key="frame" x="0.0" y="718" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="742" width="414" height="100"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6z-LZ-KUA">
                                         <rect key="frame" x="0.0" y="0.0" width="77" height="100"/>
@@ -82,7 +82,7 @@
                                 </constraints>
                             </stackView>
                             <slider opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="YHw-IW-YcO">
-                                <rect key="frame" x="18" y="658" width="378" height="51"/>
+                                <rect key="frame" x="18" y="682" width="378" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mjC-qM-iYL"/>
                                 </constraints>
@@ -97,22 +97,22 @@
                                 </connections>
                             </slider>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="in" translatesAutoresizingMaskIntoConstraints="NO" id="nFI-yl-yfP">
-                                <rect key="frame" x="25" y="181" width="364" height="364"/>
+                                <rect key="frame" x="25" y="193" width="364" height="364"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nFI-yl-yfP" secondAttribute="height" multiplier="1:1" id="x4u-Ml-ejk"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="out" translatesAutoresizingMaskIntoConstraints="NO" id="qUq-OU-lRD" userLabel="Dimmed Album Image View">
-                                <rect key="frame" x="25" y="181" width="364" height="364"/>
+                                <rect key="frame" x="25" y="193" width="364" height="364"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rick Astley" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjt-vc-e70">
-                                <rect key="frame" x="20" y="634.5" width="83.5" height="20.5"/>
+                                <rect key="frame" x="20" y="658.5" width="83.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGray5Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Never gonna give you up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvo-Ro-vgg">
-                                <rect key="frame" x="20" y="602" width="216.5" height="24"/>
+                                <rect key="frame" x="20" y="626" width="216.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -365,14 +365,7 @@ Cg
                             <outlet property="delegate" destination="f7S-hA-Fks" id="320-NU-8aN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Carbon" id="7eB-be-yKJ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="play" id="0rM-7N-dzJ">
-                            <connections>
-                                <action selector="togglePlayer:" destination="f7S-hA-Fks" id="e9J-JS-zmh"/>
-                                <segue destination="uKG-Nk-XcR" kind="presentation" id="Jy8-yl-XMJ"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Carbon" id="7eB-be-yKJ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cta-uY-icE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

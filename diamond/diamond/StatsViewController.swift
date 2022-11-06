@@ -49,7 +49,7 @@ class StatsViewController: UIViewController {
         
         firstTree.mask = mask
         
-        UIView.animate(withDuration: 1, delay: 0, animations: {
+        UIView.animate(withDuration: 1, delay: 0, options: .curveEaseOut, animations: {
             mask.frame = self.firstTree.bounds
         }, completion: { _ in
             self.firstTree.mask = nil
@@ -66,7 +66,7 @@ class StatsViewController: UIViewController {
             UIView.animate(withDuration: 0.2, animations: {
                 image.alpha = 1
             }, completion: { _ in
-                UIView.animate(withDuration: 1, delay: 0, animations: {
+                UIView.animate(withDuration: 1, delay: 0, options: .curveEaseOut, animations: {
                     mask.frame.origin.y -= mask.frame.height
                 }, completion: { _ in
                     self.secondTree.mask = nil
