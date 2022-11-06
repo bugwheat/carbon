@@ -41,8 +41,25 @@ class API {
         task.resume()
     }
 
-    func downloadChunk(id: String, callback: ()) {
+    func downloadChunk(id: String, index: Int, callback: @escaping (Data) -> Void) {
+        let destinationUrl =  FileManager.default
+            .urls(for: .documentDirectory, in: .userDomainMask).first!
+            .appendingPathComponent(UUID().uuidString)
         
+        let audioURL = URL(string: "/podcast/\(id)/bin/\(index)", relativeTo: self.url)!
+        
+        let task = URLSession.shared.downloadTask(with: audioURL) { (location, response, error) in
+            guard let location = location else {
+                return
+            }
+            
+            try! FileManager.default.moveItem(at: location ,to : destinationUrl)
+            let data = try! Data(contentsOf: location)
+
+            callback(data)
+        }
+
+        task.resume()
     }
 }
 
