@@ -16,6 +16,7 @@
 		65E74B9A2917062300407603 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E74B982917062300407603 /* Main.storyboard */; };
 		65E74B9C2917062800407603 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E74B9B2917062800407603 /* Assets.xcassets */; };
 		65E74B9F2917062800407603 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65E74B9D2917062800407603 /* LaunchScreen.storyboard */; };
+		9A5528CD29174310002E7DC8 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A5528CC29174310002E7DC8 /* Api.swift */; };
 		9A9E2D222917265C00FC5EEA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9E2D212917265C00FC5EEA /* RootViewController.swift */; };
 		F790ECC819EEAF2C40BC1733 /* Pods_diamond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92EDAC03A88F5340A7508EB /* Pods_diamond.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		65E74BA02917062800407603 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		65E74BA52917062900407603 /* diamondTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = diamondTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E74BAF2917062900407603 /* diamondUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = diamondUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9A5528CC29174310002E7DC8 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		9A9E2D212917265C00FC5EEA /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		A92EDAC03A88F5340A7508EB /* Pods_diamond.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_diamond.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C93C4ABDE2C59EEA63965507 /* Pods-diamond.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-diamond.release.xcconfig"; path = "Target Support Files/Pods-diamond/Pods-diamond.release.xcconfig"; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				650BD8DF29170CCE00E1775B /* PlayerViewController.swift */,
 				650BD8E129170CE800E1775B /* StatsViewController.swift */,
 				9A9E2D212917265C00FC5EEA /* RootViewController.swift */,
+				9A5528CC29174310002E7DC8 /* Api.swift */,
 			);
 			path = diamond;
 			sourceTree = "<group>";
@@ -135,7 +138,6 @@
 				266FD0C73188C1E2DE2FD88B /* Pods-diamond.debug.xcconfig */,
 				C93C4ABDE2C59EEA63965507 /* Pods-diamond.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -302,6 +304,7 @@
 				9A9E2D222917265C00FC5EEA /* RootViewController.swift in Sources */,
 				65E74B932917062300407603 /* AppDelegate.swift in Sources */,
 				650BD8E229170CE800E1775B /* StatsViewController.swift in Sources */,
+				9A5528CD29174310002E7DC8 /* Api.swift in Sources */,
 				65E74B952917062300407603 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

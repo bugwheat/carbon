@@ -41,32 +41,9 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
     override func viewDidLoad() {
         slider.setThumbImage(UIImage(), for: .normal)
         
-        let audioURL = URL(string: "https://18ba-35-228-169-29.eu.ngrok.io/podcast/0/data")!
-        // then lets create your document folder url
-        let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-
-        // lets create your destination file url
-        let destinationUrl = documentsDirectoryURL.appendingPathComponent(UUID().uuidString)
-        print(destinationUrl)
-        
-        try! AVAudioSession.sharedInstance().setCategory(.playback)
-
-        let task = URLSession.shared.downloadTask(with: audioURL) { (location, response, error) in
-            guard let location = location else {
-                return
-            }
-            
-            do {
-                try FileManager.default.moveItem(at: location ,to : destinationUrl)
-                self.setTrackPath(destinationUrl)
-                print("File moved to documents folder")
-            }
-            catch {
-                print("error")
-            }
-        }
-        task.resume()
-        
+        API.shared.downloadFull(id: "0") { [weak self] destinationURL in
+            self?.setTrackPath(destinationURL)
+        }        
     }
     
     override func viewWillAppear(_ animated: Bool) {
