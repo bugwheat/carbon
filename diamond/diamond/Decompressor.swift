@@ -98,7 +98,6 @@ class Decompressor: NSObject {
             throw error
         }
     }
-
     // This method preprocesses the image, runs the ort inferencesession and returns the inference result
     func runModel(onData data: Data) throws -> URL {
         let inputName = "frame"
@@ -119,6 +118,56 @@ class Decompressor: NSObject {
 
         let audioBuffer = AudioBuffer(mNumberChannels: 1, mDataByteSize: UInt32(data.length), mData: data.mutableBytes)
         var audioBufferList = AudioBufferList(mNumberBuffers: 1, mBuffers: (audioBuffer))
+
+        let audioBufferListPointer = UnsafePointer<AudioBufferList>(&audioBufferList)
+
+        let pcmBuffer = AVAudioPCMBuffer(
+            pcmFormat: AVAudioFormat(
+                commonFormat: .pcmFormatFloat32,
+                sampleRate: 24000.0,
+                channels: 1,
+                interleaved: false
+            )!,
+            bufferListNoCopy: audioBufferListPointer
+        )!
+
+        let documentsDirectoryURL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let destinationUrl = documentsDirectoryURL.appendingPathComponent(UUID().uuidString)
+
+        try writePCMBuffer(url: destinationUrl, buffer: pcmBuffer)
+
+        return destinationUrl
+    }
+
+    // This method preprocesses the image, runs the ort inferencesession and returns the inference result
+    func runModel(onDatas datas: [Data]) throws -> URL {
+        let inputName = "frame"
+        let outputName = "1427"
+
+        let inputShape: [NSNumber] = [1 as NSNumber, 8 as NSNumber, 1500 as NSNumber]
+
+        let outs = datas.map { data in
+            let inputTensor = try! ORTValue(tensorData: NSMutableData(data: data),
+                                           elementType: ORTTensorElementDataType.int32,
+                                           shape: inputShape)
+            // Run ORT InferenceSession
+            let outputs = try! session.run(withInputs: [inputName: inputTensor],
+                                          outputNames: [outputName],
+                                          runOptions: nil)
+            
+            return try! outputs[outputName]!.tensorData()
+        }
+
+        let totalData = outs.reduce(NSMutableData()) { d, s in
+            d.append(s as Data)
+            return d
+        }
+
+        let audioBuffer = AudioBuffer(mNumberChannels: 1, mDataByteSize: UInt32(totalData.length), mData: totalData.mutableBytes)
+
+        var audioBufferList = AudioBufferList(
+            mNumberBuffers: 1,
+            mBuffers: (audioBuffer))
 
         let audioBufferListPointer = UnsafePointer<AudioBufferList>(&audioBufferList)
 

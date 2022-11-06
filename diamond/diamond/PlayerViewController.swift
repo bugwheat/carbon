@@ -19,7 +19,7 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var slider: UISlider!
     
-    var podcastID: String = "0"
+    var podcast: Podcast?
     
     var isScrubbing = false
     
@@ -40,32 +40,64 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
     
     func setPodcast(_ podcast: Podcast) {
         OperationQueue.main.addOperation {
-            self.podcastID = podcast.id
+            self.podcast = podcast
             self.nameLabel.text = podcast.name
             self.authorLabel.text = podcast.author
+
+            self.chunks = (0..<podcast.n_chuncks).map { _ in Data() }
+            self.pendingChunks = podcast.n_chuncks
+            
+            for i in 0..<podcast.n_chuncks {
+                API.shared.downloadChunk(id: self.podcast?.id ?? "0", index: i) { [weak self] data in
+                    guard let self = self else {
+                        return
+                    }
+                    
+                    OperationQueue.main.addOperation {
+                        self.chunks[i] = data
+                        self.pendingChunks -= 1
+                    }
+                }
+            }
         }
     }
     
+    @IBAction func skip5(_ sender: Any) {
+        guard let player = self.player else {
+            return
+        }
+        
+        player.currentTime += 5
+    }
+    
+    @IBAction func rewind5(_ sender: Any) {
+        guard let player = self.player else {
+            return
+        }
+        
+        player.currentTime -= 5
+    }
+    
     @IBAction func sliderDidStart(_ sender: UISlider) {
-        isScrubbing = true
+//        isScrubbing = true
     }
     
     @IBAction func sliderDidFinish(_ sender: UISlider) {
-        isScrubbing = false
+//        isScrubbing = false
+    }
+    
+    var chunks: [Data] = []
+    var pendingChunks = 0 {
+        didSet {
+            if pendingChunks == 0 && chunks.count > 0 {
+                let url = try! self.decompressor.runModel(onDatas: chunks)
+                self.setTrackPath(url)
+            }
+        }
     }
     
     override func viewDidLoad() {
         slider.setThumbImage(UIImage(), for: .normal)
-
-        API.shared.downloadChunk(id: self.podcastID, index: 0) { [weak self] data in
-            guard let self = self else {
-                return
-            }
-
-            let url = try! self.decompressor.runModel(onData: data)
-
-            self.setTrackPath(url)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -136,6 +168,11 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
         OperationQueue.main.addOperation {
             self.togglePlay(self)
         }
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        player.currentTime = 0
+        player.play()
     }
 }
 

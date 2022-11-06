@@ -6,5 +6,6 @@ target 'diamond' do
   use_frameworks!
 
   pod 'onnxruntime-objc'
+  pod 'GzipSwift'
 
 end
