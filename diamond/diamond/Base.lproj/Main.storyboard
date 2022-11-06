@@ -79,12 +79,24 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mjC-qM-iYL"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="setProgress:" destination="uKG-Nk-XcR" eventType="primaryActionTriggered" id="7Ov-NR-xcH"/>
+                                    <action selector="sliderDidFinish:" destination="uKG-Nk-XcR" eventType="touchDragExit" id="13B-lR-2SO"/>
+                                    <action selector="sliderDidFinish:" destination="uKG-Nk-XcR" eventType="touchDragOutside" id="2AP-nc-wGc"/>
+                                    <action selector="sliderDidFinish:" destination="uKG-Nk-XcR" eventType="editingDidEnd" id="I2O-76-acA"/>
+                                    <action selector="sliderDidStart:" destination="uKG-Nk-XcR" eventType="editingDidBegin" id="AHE-XE-d7k"/>
+                                    <action selector="sliderDidStart:" destination="uKG-Nk-XcR" eventType="touchDragInside" id="fXO-Za-QsL"/>
+                                    <action selector="sliderDidStart:" destination="uKG-Nk-XcR" eventType="touchDragEnter" id="xRU-9F-mqZ"/>
+                                </connections>
                             </slider>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="in" translatesAutoresizingMaskIntoConstraints="NO" id="nFI-yl-yfP">
                                 <rect key="frame" x="25" y="181" width="364" height="364"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="nFI-yl-yfP" secondAttribute="height" multiplier="1:1" id="x4u-Ml-ejk"/>
                                 </constraints>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="out" translatesAutoresizingMaskIntoConstraints="NO" id="qUq-OU-lRD" userLabel="Dimmed Album Image View">
+                                <rect key="frame" x="25" y="181" width="364" height="364"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rick Astley" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjt-vc-e70">
                                 <rect key="frame" x="159" y="631" width="96" height="24"/>
@@ -99,7 +111,10 @@
                         <constraints>
                             <constraint firstItem="YHw-IW-YcO" firstAttribute="centerX" secondItem="Pba-Hy-hwz" secondAttribute="centerX" id="81r-nX-yrz"/>
                             <constraint firstItem="Pba-Hy-hwz" firstAttribute="bottom" secondItem="Xkg-Hw-FMB" secondAttribute="bottom" constant="20" id="83o-n2-tdf"/>
+                            <constraint firstItem="qUq-OU-lRD" firstAttribute="centerY" secondItem="nFI-yl-yfP" secondAttribute="centerY" id="DoL-qO-Xvg"/>
                             <constraint firstItem="Pba-Hy-hwz" firstAttribute="trailing" secondItem="Xkg-Hw-FMB" secondAttribute="trailing" id="GFK-Vv-asa"/>
+                            <constraint firstItem="qUq-OU-lRD" firstAttribute="width" secondItem="nFI-yl-yfP" secondAttribute="width" id="Slj-sI-805"/>
+                            <constraint firstItem="qUq-OU-lRD" firstAttribute="height" secondItem="nFI-yl-yfP" secondAttribute="height" id="WLC-su-uTJ"/>
                             <constraint firstItem="nFI-yl-yfP" firstAttribute="width" secondItem="QSU-E7-Sfe" secondAttribute="width" constant="-50" id="a0h-ZL-zSl"/>
                             <constraint firstItem="nFI-yl-yfP" firstAttribute="centerY" secondItem="Pba-Hy-hwz" secondAttribute="centerY" constant="-80" id="cyg-R6-CKJ"/>
                             <constraint firstItem="YHw-IW-YcO" firstAttribute="width" secondItem="QSU-E7-Sfe" secondAttribute="width" constant="-40" id="hH7-Rh-uyj"/>
@@ -108,10 +123,12 @@
                             <constraint firstItem="nFI-yl-yfP" firstAttribute="centerX" secondItem="Pba-Hy-hwz" secondAttribute="centerX" id="sXP-Un-TdQ"/>
                             <constraint firstItem="YHw-IW-YcO" firstAttribute="top" secondItem="Gjt-vc-e70" secondAttribute="bottom" constant="3" id="sYi-7N-yo2"/>
                             <constraint firstItem="Gjt-vc-e70" firstAttribute="centerX" secondItem="Pba-Hy-hwz" secondAttribute="centerX" id="tNE-Tj-f46"/>
+                            <constraint firstItem="qUq-OU-lRD" firstAttribute="centerX" secondItem="nFI-yl-yfP" secondAttribute="centerX" id="yJ1-dO-0xh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="albumImageView" destination="nFI-yl-yfP" id="CAF-lo-R5d"/>
+                        <outlet property="dimmedAlbumImageView" destination="qUq-OU-lRD" id="oUE-Zy-ThE"/>
                         <outlet property="playButton" destination="cFT-al-trv" id="8Cz-sc-Hny"/>
                         <outlet property="slider" destination="YHw-IW-YcO" id="6xg-vt-Po4"/>
                     </connections>
@@ -221,6 +238,7 @@
         <image name="in" width="600" height="600"/>
         <image name="info" catalog="system" width="93" height="128"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="out" width="600" height="600"/>
         <image name="play.circle" catalog="system" width="128" height="123"/>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -11,8 +11,13 @@ import UIKit
 class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
 
     @IBOutlet weak var albumImageView: UIImageView!
+    @IBOutlet weak var dimmedAlbumImageView: UIImageView!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var slider: UISlider!
+    
+    var isScrubbing = false
+    
+    var timer: Timer? = nil
     
     var player: AVAudioPlayer? {
         didSet {
@@ -23,6 +28,14 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
                 }
             }
         }
+    }
+    
+    @IBAction func sliderDidStart(_ sender: UISlider) {
+        isScrubbing = true
+    }
+    
+    @IBAction func sliderDidFinish(_ sender: UISlider) {
+        isScrubbing = false
     }
     
     override func viewDidLoad() {
@@ -54,18 +67,38 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
         }
         task.resume()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         UIView.animate(withDuration: 5) {
-            self.albumImageView.image = UIImage(named: "out")
+            self.albumImageView.alpha = 0
+            self.dimmedAlbumImageView.alpha = 1
         }
         
-        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) {_ in
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { [unowned self] _ in
             guard let player = self.player else {
                 return
             }
             
-            let progress = (0.025 + Float(player.currentTime / player.duration)) / 1.05
-            self.slider.setValue(progress, animated: true)
+            guard !self.isScrubbing else {
+                return
+            }
+            
+            let progress = Float(player.currentTime / player.duration)
+            self.slider.setValue(progress, animated: 0.025 < progress && progress < 0.975)
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        albumImageView.alpha = 1
+        dimmedAlbumImageView.alpha = 0
+        
+        timer?.invalidate()
+        timer = nil
     }
     
     @IBAction func togglePlay(_ sender: NSObject) {
@@ -82,16 +115,23 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     
-    func setTrackPath(_ destinationUrl: URL) {
-        if FileManager.default.fileExists(atPath: destinationUrl.path) {
-            do {
-                let player = try AVAudioPlayer(contentsOf: destinationUrl)
-                player.prepareToPlay()
-                player.volume = 1
-                self.player = player
-            } catch {
-                print(error)
-            }
+    @IBAction func setProgress(_ sender: UISlider) {
+        guard let player = self.player else {
+            return
         }
+        
+        player.currentTime = Double(sender.value) * player.duration
+    }
+    
+    func setTrackPath(_ destinationUrl: URL) {
+        guard FileManager.default.fileExists(atPath: destinationUrl.path) else {
+            self.player = nil
+            return
+        }
+
+        let player = try! AVAudioPlayer(contentsOf: destinationUrl)
+        player.prepareToPlay()
+        player.volume = 1
+        self.player = player
     }
 }
