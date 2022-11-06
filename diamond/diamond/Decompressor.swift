@@ -142,7 +142,7 @@ class Decompressor: NSObject {
     // This method preprocesses the image, runs the ort inferencesession and returns the inference result
     func runModel(onDatas datas: [Data]) throws -> URL {
         let inputName = "frame"
-        let outputName = "1427"
+        let outputName = "1627"
 
         let inputShape: [NSNumber] = [1 as NSNumber, 16 as NSNumber, 1500 as NSNumber]
 
