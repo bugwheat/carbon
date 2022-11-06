@@ -12,8 +12,14 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
 
     @IBOutlet weak var albumImageView: UIImageView!
     @IBOutlet weak var dimmedAlbumImageView: UIImageView!
+    
+    @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var slider: UISlider!
+    
+    var podcastID: String = "0"
     
     var isScrubbing = false
     
@@ -32,6 +38,14 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     
+    func setPodcast(_ podcast: Podcast) {
+        OperationQueue.main.addOperation {
+            self.podcastID = podcast.id
+            self.nameLabel.text = podcast.name
+            self.authorLabel.text = podcast.author
+        }
+    }
+    
     @IBAction func sliderDidStart(_ sender: UISlider) {
         isScrubbing = true
     }
@@ -43,7 +57,7 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
     override func viewDidLoad() {
         slider.setThumbImage(UIImage(), for: .normal)
 
-        API.shared.downloadChunk(id: "0", index: 0) { [weak self] data in
+        API.shared.downloadChunk(id: self.podcastID, index: 0) { [weak self] data in
             guard let self = self else {
                 return
             }
@@ -74,8 +88,6 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
             let progress = Float(player.currentTime / player.duration)
             self?.slider.setValue(progress, animated: 0.025 < progress && progress < 0.975)
         }
-
-
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -120,6 +132,10 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
         player.prepareToPlay()
         player.volume = 1
         self.player = player
+        
+        OperationQueue.main.addOperation {
+            self.togglePlay(self)
+        }
     }
 }
 

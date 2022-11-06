@@ -74,7 +74,7 @@
                                     <constraint firstItem="bwg-NA-HhS" firstAttribute="width" secondItem="m6z-LZ-KUA" secondAttribute="width" id="Ib2-Io-1Vp"/>
                                 </constraints>
                             </stackView>
-                            <slider opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="YHw-IW-YcO">
+                            <slider opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="YHw-IW-YcO">
                                 <rect key="frame" x="18" y="658" width="378" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mjC-qM-iYL"/>
@@ -99,7 +99,13 @@
                                 <rect key="frame" x="25" y="181" width="364" height="364"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rick Astley" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gjt-vc-e70">
-                                <rect key="frame" x="159" y="631" width="96" height="24"/>
+                                <rect key="frame" x="20" y="634.5" width="83.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemGray5Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Never gonna give you up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvo-Ro-vgg">
+                                <rect key="frame" x="20" y="602" width="216.5" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -113,22 +119,26 @@
                             <constraint firstItem="Pba-Hy-hwz" firstAttribute="bottom" secondItem="Xkg-Hw-FMB" secondAttribute="bottom" constant="20" id="83o-n2-tdf"/>
                             <constraint firstItem="qUq-OU-lRD" firstAttribute="centerY" secondItem="nFI-yl-yfP" secondAttribute="centerY" id="DoL-qO-Xvg"/>
                             <constraint firstItem="Pba-Hy-hwz" firstAttribute="trailing" secondItem="Xkg-Hw-FMB" secondAttribute="trailing" id="GFK-Vv-asa"/>
+                            <constraint firstItem="Gjt-vc-e70" firstAttribute="top" secondItem="hvo-Ro-vgg" secondAttribute="bottom" constant="8.5" id="NO4-av-CvR"/>
                             <constraint firstItem="qUq-OU-lRD" firstAttribute="width" secondItem="nFI-yl-yfP" secondAttribute="width" id="Slj-sI-805"/>
+                            <constraint firstItem="hvo-Ro-vgg" firstAttribute="leading" secondItem="Pba-Hy-hwz" secondAttribute="leading" constant="20" id="U6J-Tv-ZcR"/>
                             <constraint firstItem="qUq-OU-lRD" firstAttribute="height" secondItem="nFI-yl-yfP" secondAttribute="height" id="WLC-su-uTJ"/>
                             <constraint firstItem="nFI-yl-yfP" firstAttribute="width" secondItem="QSU-E7-Sfe" secondAttribute="width" constant="-50" id="a0h-ZL-zSl"/>
                             <constraint firstItem="nFI-yl-yfP" firstAttribute="centerY" secondItem="Pba-Hy-hwz" secondAttribute="centerY" constant="-80" id="cyg-R6-CKJ"/>
                             <constraint firstItem="YHw-IW-YcO" firstAttribute="width" secondItem="QSU-E7-Sfe" secondAttribute="width" constant="-40" id="hH7-Rh-uyj"/>
                             <constraint firstItem="Xkg-Hw-FMB" firstAttribute="top" secondItem="YHw-IW-YcO" secondAttribute="bottom" constant="10" id="hn5-A4-5rO"/>
+                            <constraint firstItem="Gjt-vc-e70" firstAttribute="leading" secondItem="Pba-Hy-hwz" secondAttribute="leading" constant="20" id="kaF-J1-HmN"/>
                             <constraint firstItem="Xkg-Hw-FMB" firstAttribute="leading" secondItem="Pba-Hy-hwz" secondAttribute="leading" id="oUr-9s-Q3p"/>
                             <constraint firstItem="nFI-yl-yfP" firstAttribute="centerX" secondItem="Pba-Hy-hwz" secondAttribute="centerX" id="sXP-Un-TdQ"/>
                             <constraint firstItem="YHw-IW-YcO" firstAttribute="top" secondItem="Gjt-vc-e70" secondAttribute="bottom" constant="3" id="sYi-7N-yo2"/>
-                            <constraint firstItem="Gjt-vc-e70" firstAttribute="centerX" secondItem="Pba-Hy-hwz" secondAttribute="centerX" id="tNE-Tj-f46"/>
                             <constraint firstItem="qUq-OU-lRD" firstAttribute="centerX" secondItem="nFI-yl-yfP" secondAttribute="centerX" id="yJ1-dO-0xh"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="albumImageView" destination="nFI-yl-yfP" id="CAF-lo-R5d"/>
+                        <outlet property="authorLabel" destination="Gjt-vc-e70" id="JXC-za-ZZv"/>
                         <outlet property="dimmedAlbumImageView" destination="qUq-OU-lRD" id="oUE-Zy-ThE"/>
+                        <outlet property="nameLabel" destination="hvo-Ro-vgg" id="br8-Hz-aeL"/>
                         <outlet property="playButton" destination="cFT-al-trv" id="8Cz-sc-Hny"/>
                         <outlet property="slider" destination="YHw-IW-YcO" id="6xg-vt-Po4"/>
                     </connections>

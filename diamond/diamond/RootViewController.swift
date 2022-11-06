@@ -61,6 +61,7 @@ class RootViewController: UITableViewController {
         let sb = UIStoryboard(name: "Main", bundle: nil)
         let playerViewController = sb.instantiateViewController(withIdentifier: "player") as! PlayerViewController
         
+        playerViewController.setPodcast(podcasts[indexPath.row])
         self.present(playerViewController, animated: true)
     }
     
