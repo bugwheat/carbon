@@ -90,8 +90,12 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
     var pendingChunks = 0 {
         didSet {
             if pendingChunks == 0 && chunks.count > 0 {
-                let url = try! self.decompressor.runModel(onDatas: chunks)
-                self.setTrackPath(url)
+                OperationQueue().addOperation {
+                    let url = try! self.decompressor.runModel(onDatas: self.chunks)
+                    OperationQueue.main.addOperation {
+                        self.setTrackPath(url)
+                    }
+                }
             }
         }
     }
