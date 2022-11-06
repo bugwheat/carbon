@@ -18,6 +18,8 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
     var isScrubbing = false
     
     var timer: Timer? = nil
+
+    let decompressor = Decompressor(modelFileInfo: FileInfo("model24", "onnx"))!
     
     var player: AVAudioPlayer? {
         didSet {
@@ -40,9 +42,15 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
     
     override func viewDidLoad() {
         slider.setThumbImage(UIImage(), for: .normal)
-        
-        API.shared.downloadFull(id: "0") { [weak self] destinationURL in
-            self?.setTrackPath(destinationURL)
+
+        API.shared.downloadChunk(id: "0", index: 0) { [weak self] data in
+            guard let self = self else {
+                return
+            }
+
+            let url = try! self.decompressor.runModel(onData: data)
+
+            self.setTrackPath(url)
         }
     }
     
@@ -66,6 +74,8 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
             let progress = Float(player.currentTime / player.duration)
             self?.slider.setValue(progress, animated: 0.025 < progress && progress < 0.975)
         }
+
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -110,5 +120,23 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
         player.prepareToPlay()
         player.volume = 1
         self.player = player
+    }
+}
+
+func getFile(forResource resource: String, withExtension fileExt: String?) -> [UInt8]? {
+    // See if the file exists.
+    guard let fileUrl: URL = Bundle.main.url(forResource: resource, withExtension: fileExt) else {
+        return nil
+    }
+
+    do {
+        // Get the raw data from the file.
+        let rawData: Data = try Data(contentsOf: fileUrl)
+
+        // Return the raw data as an array of bytes.
+        return [UInt8](rawData)
+    } catch {
+        // Couldn't read the file.
+        return nil
     }
 }

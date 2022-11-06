@@ -10,6 +10,8 @@
 		650BD8DE29170CC900E1775B /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BD8DD29170CC900E1775B /* DiscoverViewController.swift */; };
 		650BD8E029170CCE00E1775B /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BD8DF29170CCE00E1775B /* PlayerViewController.swift */; };
 		650BD8E229170CE800E1775B /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BD8E129170CE800E1775B /* StatsViewController.swift */; };
+		650BD8E42917282400E1775B /* Decompressor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650BD8E32917282300E1775B /* Decompressor.swift */; };
+		650BD8E629172D9900E1775B /* model24.onnx in Resources */ = {isa = PBXBuildFile; fileRef = 650BD8E529172D9900E1775B /* model24.onnx */; };
 		65E74B932917062300407603 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E74B922917062300407603 /* AppDelegate.swift */; };
 		65E74B952917062300407603 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E74B942917062300407603 /* SceneDelegate.swift */; };
 		65E74B972917062300407603 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E74B962917062300407603 /* ViewController.swift */; };
@@ -43,6 +45,8 @@
 		650BD8DD29170CC900E1775B /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		650BD8DF29170CCE00E1775B /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		650BD8E129170CE800E1775B /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		650BD8E32917282300E1775B /* Decompressor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decompressor.swift; sourceTree = "<group>"; };
+		650BD8E529172D9900E1775B /* model24.onnx */ = {isa = PBXFileReference; lastKnownFileType = file; path = model24.onnx; sourceTree = "<group>"; };
 		65E74B8F2917062300407603 /* diamond.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = diamond.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65E74B922917062300407603 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65E74B942917062300407603 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 		65E74B912917062300407603 /* diamond */ = {
 			isa = PBXGroup;
 			children = (
+				650BD8E529172D9900E1775B /* model24.onnx */,
 				65E74B922917062300407603 /* AppDelegate.swift */,
 				65E74B942917062300407603 /* SceneDelegate.swift */,
 				65E74B962917062300407603 /* ViewController.swift */,
@@ -128,6 +133,7 @@
 				650BD8E129170CE800E1775B /* StatsViewController.swift */,
 				9A9E2D212917265C00FC5EEA /* RootViewController.swift */,
 				9A5528CC29174310002E7DC8 /* Api.swift */,
+				650BD8E32917282300E1775B /* Decompressor.swift */,
 			);
 			path = diamond;
 			sourceTree = "<group>";
@@ -246,6 +252,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				650BD8E629172D9900E1775B /* model24.onnx in Resources */,
 				65E74B9F2917062800407603 /* LaunchScreen.storyboard in Resources */,
 				65E74B9C2917062800407603 /* Assets.xcassets in Resources */,
 				65E74B9A2917062300407603 /* Main.storyboard in Resources */,
@@ -303,6 +310,7 @@
 				650BD8DE29170CC900E1775B /* DiscoverViewController.swift in Sources */,
 				9A9E2D222917265C00FC5EEA /* RootViewController.swift in Sources */,
 				65E74B932917062300407603 /* AppDelegate.swift in Sources */,
+				650BD8E42917282400E1775B /* Decompressor.swift in Sources */,
 				650BD8E229170CE800E1775B /* StatsViewController.swift in Sources */,
 				9A5528CD29174310002E7DC8 /* Api.swift in Sources */,
 				65E74B952917062300407603 /* SceneDelegate.swift in Sources */,
