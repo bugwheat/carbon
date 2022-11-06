@@ -35,7 +35,7 @@ pub fn get_podcasts() -> BTreeMap<String, Podcast> {
                     id: i.to_string(),
                     author: "Rick Astley".to_string(),
                     name: s.to_string(),
-                    n_chuncks: 11,
+                    n_chuncks: 10,
                     duration: 211,
                 },
             )
