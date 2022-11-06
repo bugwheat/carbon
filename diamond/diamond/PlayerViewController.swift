@@ -112,11 +112,7 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
             guard let player = self?.player else {
                 return
             }
-            
-            guard self?.isScrubbing == false else {
-                return
-            }
-            
+
             let progress = Float(player.currentTime / player.duration)
             self?.slider.setValue(progress, animated: 0.025 < progress && progress < 0.975)
         }

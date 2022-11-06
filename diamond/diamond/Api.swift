@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Gzip
 
 struct Podcast: Codable {
     var id: String
@@ -50,16 +51,14 @@ class API {
     }
 
     func downloadChunk(id: String, index: Int, callback: @escaping (Data) -> Void) {
-        let audioURL = URL(string: "/podcast/\(id)/bin/\(index)", relativeTo: self.url)!
+        let audioURL = URL(string: "/podcast/\(id)/bin-gz/\(index)", relativeTo: self.url)!
         
         let task = URLSession.shared.downloadTask(with: audioURL) { (location, response, error) in
             guard let location = location else {
                 return
             }
-
             let data = try! Data(contentsOf: location)
-
-            callback(data)
+            callback(try! data.gunzipped())
         }
 
         task.resume()

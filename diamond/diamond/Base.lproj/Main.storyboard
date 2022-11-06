@@ -216,11 +216,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="res_green" translatesAutoresizingMaskIntoConstraints="NO" id="dAF-qD-MSV">
-                                <rect key="frame" x="25" y="189" width="248" height="298"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="res_green" translatesAutoresizingMaskIntoConstraints="NO" id="QHP-2k-39q">
-                                <rect key="frame" x="83" y="199" width="248" height="298"/>
+                                <rect key="frame" x="25" y="189" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ocp-iZ-DGX">
@@ -230,6 +226,9 @@
                                 <state key="normal">
                                     <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="large"/>
                                 </state>
+                                <connections>
+                                    <action selector="shareDidPressed" destination="fcd-CE-s4o" eventType="primaryActionTriggered" id="YKR-Jg-WK4"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F26-R1-bSL">
                                 <rect key="frame" x="20" y="495" width="311" height="94"/>
@@ -246,7 +245,7 @@
                                     <fragment content=" saved">
                                         <attributes>
                                             <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="NSColor" red="0.88937661082474229" green="0.88937661082474229" blue="0.88937661082474229" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <font key="NSFont" size="28" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
@@ -257,7 +256,7 @@ Cg
 </string>
                                         <attributes>
                                             <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="NSColor" red="0.88937661082474229" green="0.88937661082474229" blue="0.88937661082474229" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <font key="NSFont" size="48" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
@@ -265,7 +264,7 @@ Cg
                                     <fragment content="by using Carbon">
                                         <attributes>
                                             <color key="NSBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="NSColor" red="0.88937661082474229" green="0.88937661082474229" blue="0.88937661082474229" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <font key="NSFont" size="23" name="HelveticaNeue"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
@@ -273,6 +272,10 @@ Cg
                                 </attributedString>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="res_green" translatesAutoresizingMaskIntoConstraints="NO" id="QHP-2k-39q">
+                                <rect key="frame" x="82" y="227" width="250" height="250"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Exp-it-cUG"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -291,7 +294,11 @@ Cg
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="info" catalog="system" id="McA-T3-OTz"/>
                     <connections>
+                        <outlet property="firstTree" destination="QHP-2k-39q" id="UPN-jg-RBY"/>
                         <outlet property="heightConstraint" destination="XxU-A0-PCZ" id="3aY-Um-VCZ"/>
+                        <outlet property="secondTree" destination="dAF-qD-MSV" id="Mou-th-cwh"/>
+                        <outlet property="thirdTree" destination="ZNx-27-mJo" id="Aoj-ET-Tws"/>
+                        <outlet property="thirdView" destination="8Rt-Fp-t28" id="pqG-Br-nHU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZZM-Oh-TWU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
