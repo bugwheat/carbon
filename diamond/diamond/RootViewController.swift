@@ -7,10 +7,24 @@
 
 import UIKit
 
+class PodcastTableViewCell: UITableViewCell {
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var authorLabel: UILabel!
+}
+
 class RootViewController: UITableViewController {
 
+    var podcasts: [Podcast] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        API.shared.getPodcasts { [weak self] podcasts in
+            self?.podcasts = podcasts
+            OperationQueue.main.addOperation {
+                self?.tableView.reloadData()
+            }
+        }
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,13 +42,15 @@ class RootViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return podcasts.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseMe", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseMe", for: indexPath) as!PodcastTableViewCell
 
-        // Configure the cell...
+        let podcast = podcasts[indexPath.row]
+        cell.nameLabel.text = podcast.name
+        cell.authorLabel.text = podcast.author
 
         return cell
     }

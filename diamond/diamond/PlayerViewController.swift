@@ -43,7 +43,7 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
         
         API.shared.downloadFull(id: "0") { [weak self] destinationURL in
             self?.setTrackPath(destinationURL)
-        }        
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,17 +54,17 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
             self.dimmedAlbumImageView.alpha = 1
         }
         
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { [unowned self] _ in
-            guard let player = self.player else {
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { [weak self] _ in
+            guard let player = self?.player else {
                 return
             }
             
-            guard !self.isScrubbing else {
+            guard self?.isScrubbing == false else {
                 return
             }
             
             let progress = Float(player.currentTime / player.duration)
-            self.slider.setValue(progress, animated: 0.025 < progress && progress < 0.975)
+            self?.slider.setValue(progress, animated: 0.025 < progress && progress < 0.975)
         }
     }
     

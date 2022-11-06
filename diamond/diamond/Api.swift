@@ -22,6 +22,14 @@ class API {
         self.url = url
     }
     
+    func getPodcasts(callback: @escaping ([Podcast]) -> Void) {
+        let url = URL(string: "/podcasts", relativeTo: self.url)!
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            let podcasts = try! JSONDecoder().decode([Podcast].self, from: data!)
+            callback(podcasts)
+        }.resume()
+    }
+    
     func downloadFull(id: String, callback: @escaping (URL) -> Void) {
         let destinationUrl =  FileManager.default
             .urls(for: .documentDirectory, in: .userDomainMask).first!
