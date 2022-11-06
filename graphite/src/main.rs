@@ -14,6 +14,12 @@ async fn audio(_: web::Path<String>) -> std::io::Result<actix_files::NamedFile> 
     actix_files::NamedFile::open("data/rickroll.mp3")
 }
 
+#[get("/podcast/{id}/bin/{chunk}")]
+async fn audio_bin(path: web::Path<(String, u32)>) -> std::io::Result<actix_files::NamedFile> {
+    let (_, chunk) = *path;
+    actix_files::NamedFile::open(format!("data/rickroll-{chunk:03}.bin"))
+}
+
 #[get("/podcast/{id}/compressed/{chunk}")]
 async fn audio_compressed(path: web::Path<(String, u32)>) -> std::io::Result<actix_files::NamedFile> {
     let (_, chunk) = *path;
@@ -39,6 +45,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .wrap(middleware::Logger::default())
             .service(audio)
+            .service(audio_bin)
             .service(audio_compressed)
             .service(podcast)
             .service(podcasts)
