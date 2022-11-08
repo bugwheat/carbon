@@ -309,7 +309,7 @@ Cg
         <scene sceneID="s8z-df-OTw">
             <objects>
                 <tableViewController id="f7S-hA-Fks" customClass="RootViewController" customModule="diamond" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="euG-95-sUu">
+                    <tableView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="60" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="euG-95-sUu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -345,12 +345,11 @@ Cg
                                         <constraint firstAttribute="bottom" secondItem="ZfL-YW-vSd" secondAttribute="bottom" constant="13" id="G35-Jx-9Fd"/>
                                         <constraint firstAttribute="trailing" secondItem="Z3S-0o-8kT" secondAttribute="trailing" constant="20" symbolic="YES" id="MdJ-JZ-Ah6"/>
                                         <constraint firstAttribute="trailing" secondItem="ZfL-YW-vSd" secondAttribute="trailing" constant="20" symbolic="YES" id="SB3-CQ-oJc"/>
-                                        <constraint firstAttribute="bottom" secondItem="cH2-8f-AzI" secondAttribute="bottom" constant="5" id="URO-Ot-pEW"/>
                                         <constraint firstItem="cH2-8f-AzI" firstAttribute="leading" secondItem="dTi-CP-NrM" secondAttribute="leading" constant="20" symbolic="YES" id="X5J-k6-j5N"/>
                                         <constraint firstItem="Z3S-0o-8kT" firstAttribute="leading" secondItem="cH2-8f-AzI" secondAttribute="trailing" constant="8" symbolic="YES" id="XDG-CS-6pT"/>
+                                        <constraint firstItem="cH2-8f-AzI" firstAttribute="centerY" secondItem="dTi-CP-NrM" secondAttribute="centerY" id="ZK8-TP-Z0U"/>
                                         <constraint firstItem="ZfL-YW-vSd" firstAttribute="leading" secondItem="cH2-8f-AzI" secondAttribute="trailing" constant="8" symbolic="YES" id="i1b-GA-4fV"/>
                                         <constraint firstItem="Z3S-0o-8kT" firstAttribute="top" secondItem="dTi-CP-NrM" secondAttribute="top" constant="13" id="lg0-qL-VkM"/>
-                                        <constraint firstItem="cH2-8f-AzI" firstAttribute="top" secondItem="dTi-CP-NrM" secondAttribute="top" constant="5" id="zk9-h5-ep4"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

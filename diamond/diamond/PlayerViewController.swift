@@ -46,7 +46,7 @@ class PlayerViewController: UIViewController, AVAudioPlayerDelegate {
 
             self.chunks = (0..<podcast.n_chuncks).map { _ in Data() }
             self.pendingChunks = podcast.n_chuncks
-            
+
             for i in 0..<podcast.n_chuncks {
                 API.shared.downloadChunk(id: self.podcast?.id ?? "0", index: i) { [weak self] data in
                     guard let self = self else {

@@ -66,5 +66,5 @@ class API {
 }
 
 extension API {
-    static var shared = API(url: URL(string: "https://9b9b-35-228-169-29.eu.ngrok.io")!)
+    static var shared = API(url: URL(string: "https://87a6-34-88-138-74.eu.ngrok.io")!)
 }
